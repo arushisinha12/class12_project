@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body style="background-color:black;">
+
+<h1 style="text-align: center; color: white;">Hello, my fellow traveller!
+    Need help finding the perfect spot for your vacation?
+    Simply enter a date of your choice and start planning your trip!'</h1>
+
+<p style="text-align:center; color:grey; font-size:160%;">~Live your life by a compass not a clock~</p>
+
+<p>
+<center><img src="{% static 'main/yaatra.jpg' %}" alt="Yaatra Image" height= "400"/></center>
+
+
+<center><form action="{% url 'page2' %}">
+  <button type="submit" style="color:rgb(22, 21, 21)">START</button>
+</form><center>
+</p>
+</body>
+</html>

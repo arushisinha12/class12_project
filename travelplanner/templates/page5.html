@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>confirmation</title>
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+    </head>
+    <body>
+        <form method="post" action="{% url 'page2' %}">
+        {% csrf_token %}
+        <table class="translucent-table">
+            <tr>
+                <td style="text-align: center;">
+                    <h1 style="color: rgb(48, 51, 62)">Thank You for booking with us</h1>
+                    <button type="submit">Book Again?</button>
+                </td>
+            </tr>
+        </table>
+        </form>
+    </body>
+</html>

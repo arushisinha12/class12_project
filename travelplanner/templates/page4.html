@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Places</title>
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+    </head>
+
+<body>
+    <table class="translucent-table">
+    <tr>
+        <td><center><h1>{{ place.places }}</h1></center></td>
+    </tr>
+    <tr>
+        <td><center><p>{{ place.description }}</p></center></td>
+    </tr>
+    <tr><td>
+        <form method="post" onsubmit="return confirmFunction()" 
+            action="{% url 'page5' %}">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Select Hotels:</legend>
+                {% for hotel in hotels_list %}
+                    <div class="radio-selection">
+                        <input type="radio" id="hotel_{{ forloop.counter }}" name="hotels" value="{{ hotel }}" required>
+                        <label for="hotel_{{ forloop.counter }}">{{ hotel }}</label>
+                    </div>
+                {% endfor %}
+            </fieldset>
+            <br/>
+            <center><button type="submit">Submit</button></center>
+        </form></td>
+    </tr>
+    </table>
+    <script>
+        function confirmFunction() {
+            ret_value = confirm("Do you want to confirm your booking?");
+            if (ret_value)
+                return true; // Allow the form to submit
+            else
+                return false;
+        }
+    </script>
+</body>
+</html>

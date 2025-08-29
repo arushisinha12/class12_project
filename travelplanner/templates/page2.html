@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Travel Planner</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body><br>
+    <form method="post" action="{% url 'travel_planner' %}">
+        {% csrf_token %}
+    <table class="translucent-table">
+    <tr>
+        <td><label for="first_name">First Name:</label></td>
+        <td><input class="text" type="text" id="first_name" name="first_name" placeholder="Your First Name" required></td>
+    </tr>
+    <tr>
+        <td><label for="last_name">Last Name:</label></td>
+        <td><input class="text" type="text" id="last_name" name="last_name" placeholder="Your Last Name" required></td>
+    </tr>
+    <tr>
+        <td><label for="email">Email:</label></td>
+        <td><input class="text" type="email" id="email_field" name="email_field" required></td>
+    </tr>    
+    <tr>
+        <td><label for="date_field">Trip Date:</label></td>
+        <td><input class="text" type="date" name="date_field" id="date_field" required></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><button type="submit">Submit</button></td>
+    </tr>
+    </table>
+    </form>
+    <script>
+        document.getElementById("date_field").min = new Date().toISOString().slice(0, 10);
+    </script>
+</body>
+</html>

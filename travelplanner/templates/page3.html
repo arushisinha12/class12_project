@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Month details</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <table class="translucent-table">
+        <tr>
+            <td><center><h1>In {{ month_name }}</h1></center></td>
+        </tr>
+        <tr>
+            <td>
+                <center><h2>Places you can visit are</h2></center>
+            </td>
+        </tr>
+        {% for place in places %}
+        <tr><td class="center-content">
+            <button onclick="window.location.href='{% url 'page4' place.p_no%}'">{{ place.places }}</button>
+        </td></tr>
+        {% endfor %}
+    </table>
+    <input type="hidden" name="email_global" value="{{ email_global }}">
+    
+        
+</body>
+</html>
